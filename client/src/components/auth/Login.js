@@ -8,14 +8,14 @@ function Login() {
                     <div className="card-image">
                         <h2 className="card-heading">Login</h2>
                     </div>
-                    <form className="card-form" action="" method="">
+                    <form className="card-form" action="" method="post">
                         <div className="input">
                             <input
                                 type="text"
                                 className="input-field"
                                 placeholder="alexander"
                                 id="username"
-                                name=""
+                                name="username"
                                 defaultValue=""
                             />
                             <label className="username">Username</label>
@@ -25,7 +25,7 @@ function Login() {
                                 type="password"
                                 className="input-field"
                                 id="password"
-                                name=""
+                                name="password"
                                 placeholder="******"
                             />
                             <label className="password">Password</label>

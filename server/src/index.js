@@ -1,6 +1,10 @@
 import express from 'express';
+import dbConfig from './config/dbConfig.js';
 
 const app = express();
+
+dbConfig()
+
 
 app.get('/', (req, res) => {
    res.send('hi form server');

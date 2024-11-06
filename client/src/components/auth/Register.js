@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Register() {
+    
     return (
         <main>
             <section id="register-page">
@@ -8,17 +9,17 @@ function Register() {
                     <div className="card-image">
                         <h2 className="card-heading">Create your account</h2>
                     </div>
-                    <form className="card-form" action="" method="">
+                    <form className="card-form" action="" method="post">
                         <div className="input">
                             <input
                                 type="text"
                                 className="input-field"
-                                placeholder="Alexander Parkinson"
+                                placeholder="Example@ex.com"
                                 id="name"
-                                name=""
+                                name="emial"
                                 defaultValue=""
                             />
-                            <label className="name">Full Name</label>
+                            <label className="name">Email</label>
                         </div>
                         <div className="input">
                             <input
@@ -26,7 +27,7 @@ function Register() {
                                 className="input-field"
                                 placeholder="alexander"
                                 id="username"
-                                name=""
+                                name="username"
                                 defaultValue=""
                             />
                             <label className="username">Username</label>
@@ -36,7 +37,7 @@ function Register() {
                                 type="password"
                                 className="input-field"
                                 id="password"
-                                name=""
+                                name="password"
                                 placeholder="******"
                             />
                             <label className="password">Password</label>
@@ -46,7 +47,7 @@ function Register() {
                                 type="password"
                                 className="input-field"
                                 id="re-password"
-                                name=""
+                                name="rePassword"
                                 placeholder="******"
                             />
                             <label className="re-password">Repeat Password</label>
