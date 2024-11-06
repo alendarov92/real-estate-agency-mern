@@ -1,9 +1,9 @@
 import React from 'react'
 
 function Header() {
-  return (
-    <>
-    <meta charSet="UTF-8" />
+    return (
+        <>
+            <meta charSet="UTF-8" />
             {/* Do not forget to change the path to the css file */}
             <title>Home Page</title>
             <link href="/css/style.css" type="text/css" rel="stylesheet" />
@@ -43,8 +43,8 @@ function Header() {
                 </nav>
                 <footer>© 2021</footer>
             </div>
-          </>
-  )
+        </>
+    )
 }
 
 export default Header
