@@ -1,19 +1,26 @@
-
-import Header from './Home/Header';
-import Home from './Home/Home';
-import Login from './auth/Login'
-import Register from './auth/Register';
+import { Routes, Route } from "react-router-dom";
+import Header from './components/Home/Header';
+import Home from './components/Home/Home';
+import Login from './components/auth/Login'
+import Register from './components/auth/Register';
 
 
 function App() {
   return (
     <>
-    <Header />
+      <Header />
+      <main>
 
-    <Home />
-    <Login />
-    <Register />
+        <Routes>
+
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </main>
+
     </>
+
   );
 }
 
