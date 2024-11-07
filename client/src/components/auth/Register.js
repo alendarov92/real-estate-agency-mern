@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Register() {
-    
+    const [email, setEmail] = useState('')
+    const [username, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    const [rePassword, setRePassword] = useState('')
+
+    const registerUser = async (e) => {
+        e.preventDefault();
+        const res = await fetch('http://localhost:3030/api/register', {
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                username,
+                password,
+                rePassword,
+            })
+        });
+
+        const data = await res.json();
+        console.log(data);
+        
+
+    }
     return (
         <main>
             <section id="register-page">
@@ -9,14 +32,16 @@ function Register() {
                     <div className="card-image">
                         <h2 className="card-heading">Create your account</h2>
                     </div>
-                    <form className="card-form" action="" method="post">
+                    <form className="card-form" onSubmit={registerUser}>
                         <div className="input">
                             <input
                                 type="text"
                                 className="input-field"
                                 placeholder="Example@ex.com"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                                 id="name"
-                                name="emial"
+                                name="email"
                                 defaultValue=""
                             />
                             <label className="name">Email</label>
@@ -26,6 +51,8 @@ function Register() {
                                 type="text"
                                 className="input-field"
                                 placeholder="alexander"
+                                onChange={(e) => setUserName(e.target.value)}
+                                value={username}
                                 id="username"
                                 name="username"
                                 defaultValue=""
@@ -36,6 +63,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
                                 id="password"
                                 name="password"
                                 placeholder="******"
@@ -46,6 +75,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
+                                onChange={(e) => setRePassword(e.target.value)}
+                                value={rePassword}
                                 id="re-password"
                                 name="rePassword"
                                 placeholder="******"
