@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import  { Navigate } from 'react-router-dom'
 
 function Register() {
     const [email, setEmail] = useState('')
@@ -23,7 +24,7 @@ function Register() {
 
         const data = await res.json();
         
-        
+        Navigate('/')
 
     }
     return (

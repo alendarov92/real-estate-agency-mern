@@ -3,7 +3,6 @@ import React from 'react'
 function Home() {
     return (
         <>
-            
                 <main>
                     <section id="home-page" className="background-image">
                         <div className="home-container">

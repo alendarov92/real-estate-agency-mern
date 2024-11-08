@@ -4,13 +4,14 @@ import userService from '../services/userService.js'
 const router = Router();
 
 router.post('/register', async (req, res) => {
-    const userData = req.body
+    const { username, email, password, rePassword } = req.body
 
-    if (!validator.isEmail(userData.email)) {
+
+    if (!validator.isEmail(email)) {
        return res.status(400).end();
     }
 
-    await userService.register(userData);
+    await userService.register(username, email, password, rePassword);
     
     // const token = await userService.login(email, password);
     // res.cookie('auth', token, { httpOnly: true })

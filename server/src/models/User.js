@@ -4,6 +4,10 @@ import bcrypt from 'bcrypt';
 const SALT_ROUNDS = 10
 
 const userSchema = new Schema({
+    email: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true
@@ -17,7 +21,6 @@ const userSchema = new Schema({
 // Hash password before save
 userSchema.pre('save', async function () {
     const hash = await bcrypt.hash(this.password, SALT_ROUNDS);
-
     this.password = hash
 })
 
