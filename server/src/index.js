@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json())
 dbConfig()
 
-app.use(cors)
+app.use(cors())
 app.use(routes)
 
 

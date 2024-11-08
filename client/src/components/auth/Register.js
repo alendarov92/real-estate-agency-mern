@@ -9,8 +9,9 @@ function Register() {
     const registerUser = async (e) => {
         e.preventDefault();
         const res = await fetch('http://localhost:3030/api/register', {
+            method: 'POST',
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 email,
@@ -21,7 +22,7 @@ function Register() {
         });
 
         const data = await res.json();
-        console.log(data);
+        
         
 
     }

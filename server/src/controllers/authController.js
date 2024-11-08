@@ -1,21 +1,22 @@
 import { Router } from "express";
-
-
+import validator from 'validator';
+import userService from '../services/userService.js'
 const router = Router();
 
 router.post('/register', async (req, res) => {
-    const { email, password, repeatPassword } = req.body;
+    const userData = req.body
 
-    if (!validator.isEmail(email)) {
+    if (!validator.isEmail(userData.email)) {
        return res.status(400).end();
     }
 
-    await authService.register(email, password);
+    await userService.register(userData);
     
-    const token = await authService.login(email, password);
-    res.cookie('auth', token, { httpOnly: true })
+    // const token = await userService.login(email, password);
+    // res.cookie('auth', token, { httpOnly: true })
 
     res.redirect('/')
+   
 
 });
 
