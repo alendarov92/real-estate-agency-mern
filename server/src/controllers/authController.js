@@ -6,9 +6,12 @@ const router = Router();
 router.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body
 
+    if (!username || !email || !password) {
+        throw Error('All fields are required!')
+    }
 
     if (!validator.isEmail(email)) {
-       return res.status(400).end();
+        throw Error('Email is not valid!')
     }
 
     await userService.register(username, email, password, rePassword);

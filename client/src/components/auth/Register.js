@@ -7,7 +7,10 @@ function Register() {
     const [password, setPassword] = useState('')
     const [rePassword, setRePassword] = useState('')
 
+   
+
     const registerUser = async (e) => {
+
         e.preventDefault();
         const res = await fetch('http://localhost:3030/api/register', {
             method: 'POST',
@@ -24,7 +27,7 @@ function Register() {
 
         const data = await res.json();
         
-        Navigate('/')
+        return <Navigate to={'/'} /> 
 
     }
     return (
