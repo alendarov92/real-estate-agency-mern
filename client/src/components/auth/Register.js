@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import  { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 function Register() {
     const [email, setEmail] = useState('')
@@ -7,28 +7,33 @@ function Register() {
     const [password, setPassword] = useState('')
     const [rePassword, setRePassword] = useState('')
 
-   
+
 
     const registerUser = async (e) => {
-
-        e.preventDefault();
-        const res = await fetch('http://localhost:3030/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                username,
-                password,
-                rePassword,
-            })
-        });
-
-        const data = await res.json();
         
-        return <Navigate to={'/'} /> 
+        try {
+            e.preventDefault();
+            const res = await fetch('http://localhost:3030/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    username,
+                    password,
+                    rePassword,
+                })
+            });
+            
+            return <Navigate to='/' />
+            
 
+            
+        } catch (error) {
+           console.log(error);
+           
+        }
     }
     return (
         <main>
@@ -94,7 +99,7 @@ function Register() {
                     </form>
                     <div className="card-info">
                         <small>
-                            Already have an account?<a href="#"> Sign in</a>
+                            Already have an account?<a href="/login"> Sign in</a>
                         </small>
                     </div>
                 </div>
