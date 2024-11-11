@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
     return (
@@ -16,28 +17,28 @@ function Header() {
           </div>
           </div>*/}
                 <nav>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                     <ul>
                         {/* Guest users and Logged users */}
                         <li>
-                            <a href="#">Housing for rent</a>
+                            <Link to="#">Housing for rent</Link>
                         </li>
                         {/* Guest users */}
                         <li>
-                            <a href="/login">Login</a>
+                            <Link to="/login">Login</Link>
                         </li>
                         <li>
-                            <a href="/register">Register</a>
+                            <Link to="/register">Register</Link>
                         </li>
                         {/* Logged users */}
                         <li>
-                            <a href="#">Create offer</a>
+                            <Link to="#">Create offer</Link>
                         </li>
                         <li>
-                            <a href="#">Search</a>
+                            <Link to="#">Search</Link>
                         </li>
                         <li>
-                            <a href="#">Logout</a>
+                            <Link to="#">Logout</Link>
                         </li>
                     </ul>
                 </nav>
