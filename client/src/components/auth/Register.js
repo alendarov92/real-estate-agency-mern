@@ -11,8 +11,8 @@ function Register() {
 
     const registerUser = async (e) => {
         
+        e.preventDefault();
         try {
-            e.preventDefault();
             const res = await fetch('http://localhost:3030/api/register', {
                 method: 'POST',
                 headers: {
@@ -25,8 +25,10 @@ function Register() {
                     rePassword,
                 })
             });
+            const data = res.json()
+            console.log(data)
             
-            return <Navigate to='/' />
+             return <Navigate to='/' />
             
 
             

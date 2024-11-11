@@ -7,7 +7,7 @@ router.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body
 
     if (!username || !email || !password) {
-        throw Error('All fields are required!')
+        throw Error('All fields are required!');
     }
 
     if (!validator.isEmail(email)) {
