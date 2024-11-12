@@ -1,9 +1,17 @@
 import React from 'react'
 
 function Login() {
+    const loginHeandler = (e) => {
+        e.preventDefault();
+
+        const {username, password} = Object.fromEntries(new FormData(e.target))
+        console.log(username);
+        console.log(password);
+        
+    }
     return (
         <main>
-            <section id="login-page">
+            <section id="login-page" onSubmit={loginHeandler}>
                 <div className="boxs">
                     <div className="card-image">
                         <h2 className="card-heading">Login</h2>

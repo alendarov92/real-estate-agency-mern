@@ -2,16 +2,21 @@ import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
 function Register() {
-    const [email, setEmail] = useState('')
-    const [username, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    const [rePassword, setRePassword] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [username, setUserName] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [rePassword, setRePassword] = useState('')
 
 
 
     const registerUser = async (e) => {
         
         e.preventDefault();
+        const {email,
+            username,
+            password,
+            rePassword,} = Object.fromEntries(new FormData(e.target))
+
         try {
             const res = await fetch('http://localhost:3030/api/register', {
                 method: 'POST',
@@ -49,8 +54,8 @@ function Register() {
                                 type="text"
                                 className="input-field"
                                 placeholder="Example@ex.com"
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
+                                // onChange={(e) => setEmail(e.target.value)}
+                                // value={email}
                                 id="name"
                                 name="email"
                                 defaultValue=""
@@ -62,8 +67,8 @@ function Register() {
                                 type="text"
                                 className="input-field"
                                 placeholder="alexander"
-                                onChange={(e) => setUserName(e.target.value)}
-                                value={username}
+                                // onChange={(e) => setUserName(e.target.value)}
+                                // value={username}
                                 id="username"
                                 name="username"
                                 defaultValue=""
@@ -74,8 +79,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
-                                onChange={(e) => setPassword(e.target.value)}
-                                value={password}
+                                // onChange={(e) => setPassword(e.target.value)}
+                                // value={password}
                                 id="password"
                                 name="password"
                                 placeholder="******"
@@ -86,8 +91,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
-                                onChange={(e) => setRePassword(e.target.value)}
-                                value={rePassword}
+                                // onChange={(e) => setRePassword(e.target.value)}
+                                // value={rePassword}
                                 id="re-password"
                                 name="rePassword"
                                 placeholder="******"
