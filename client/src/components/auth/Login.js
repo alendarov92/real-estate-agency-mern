@@ -1,13 +1,32 @@
 import React from 'react'
 
 function Login() {
-    const loginHeandler = (e) => {
+    const loginHeandler = async (e) => {
         e.preventDefault();
 
         const {username, password} = Object.fromEntries(new FormData(e.target))
-        console.log(username);
-        console.log(password);
         
+        try {
+            const res = await fetch('http://localhost:3030/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    password, 
+                })
+            });
+            const data = res.json()
+            console.log(data)
+            
+             return <Navigate to='/' />
+            
+
+            
+        } catch (error) {
+           console.log(error); 
+        }
     }
     return (
         <main>
