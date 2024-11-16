@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Login() {
     const loginHeandler = async (e) => {
@@ -64,7 +65,7 @@ function Login() {
                     <div className="card-info">
                         <p>
                             Dont have an account?
-                            <a href="#">Sign up</a>.
+                            <Link href="/register">Sign up</Link>.
                         </p>
                     </div>
                 </div>
