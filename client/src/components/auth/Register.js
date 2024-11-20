@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
+import AuthContext from '../../contexts/authContext';
 
 function Register() {
-    const { values, onChange, onSubmit} = useForm({
+
+    const {registerSubmitHeandler} = useContext(AuthContext)
+
+    const { values, onChange, onSubmit} = useForm(registerSubmitHeandler, {
         email: '',
         username: '',
         password: '',

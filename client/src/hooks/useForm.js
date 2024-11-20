@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function useForm(initilaValues) {
+export default function useForm(registerSubmitHeandler,initilaValues) {
 
     const [values, setValues] = useState(initilaValues);
 
@@ -13,7 +13,7 @@ export default function useForm(initilaValues) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        submitHeandler(values)
+        registerSubmitHeandler(values)
     }
     return {
         values,

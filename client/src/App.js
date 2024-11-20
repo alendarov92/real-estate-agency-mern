@@ -3,24 +3,32 @@ import Header from './components/Home/Header';
 import Home from './components/Home/Home';
 import Login from './components/auth/Login'
 import Register from './components/auth/Register';
+import { useState } from "react";
+import AuthContext from "./contexts/authContext";
 
 
 function App() {
+  const [auth, setAuth] = useState({});
+
+  const registerSubmitHeandler = (values) => {
+    console.log(values);
+
+  }
   return (
-    <>
-      <Header />
-      <main>
+    <AuthContext.Provider value={{registerSubmitHeandler}}>
+      <>
 
-        <Routes>
+        <Header />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </main>
-
-    </>
-
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </main>
+      </>
+    </AuthContext.Provider>
   );
 }
 
