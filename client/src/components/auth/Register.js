@@ -5,9 +5,9 @@ import AuthContext from '../../contexts/authContext';
 
 function Register() {
 
-    const {registerSubmitHeandler} = useContext(AuthContext)
+    const { registerSubmitHeandler } = useContext(AuthContext)
 
-    const { values, onChange, onSubmit} = useForm(registerSubmitHeandler, {
+    const { values, onChange, onSubmit } = useForm(registerSubmitHeandler, {
         email: '',
         username: '',
         password: '',
@@ -22,7 +22,7 @@ function Register() {
 
 
     // const registerUser = async (e) => {
-        
+
     //     e.preventDefault();
 
     //     // const navigate = Navigate()
@@ -40,14 +40,14 @@ function Register() {
     //                 rePassword,
     //             })
     //         });
-            
+
     //         const data = res.json()
     //         console.log(data.user._id);
-            
+
     //         // if (data.users._id) {
     //         //     navigate('/')
     //         // }
-            
+
     //     } catch (error) {
     //        console.log(error); 
     //     }
