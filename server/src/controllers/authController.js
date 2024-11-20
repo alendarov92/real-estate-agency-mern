@@ -10,6 +10,7 @@ router.post('/register', async (req, res) => {
         throw Error('All fields are required!');
     }
 
+    
     if (!validator.isEmail(email)) {
         throw Error('Email is not valid!')
         

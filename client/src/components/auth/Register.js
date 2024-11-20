@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
+import useForm from '../../hooks/useForm'
 
 function Register() {
+    const { values, onChange, onSubmit} = useForm({
+        email: '',
+        username: '',
+        password: '',
+        rePassword: '',
+    });
+
     // const [email, setEmail] = useState('')
     // const [username, setUserName] = useState('')
     // const [password, setPassword] = useState('')
@@ -9,38 +17,37 @@ function Register() {
 
 
 
-    const registerUser = async (e) => {
+    // const registerUser = async (e) => {
         
-        e.preventDefault();
-        const {email,
-            username,
-            password,
-            rePassword,} = Object.fromEntries(new FormData(e.target))
+    //     e.preventDefault();
 
-        try {
-            const res = await fetch('http://localhost:3030/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    username,
-                    password,
-                    rePassword,
-                })
-            });
-            const data = res.json()
-            console.log(data)
-            
-             return <Navigate to='/' />
-            
+    //     // const navigate = Navigate()
 
+    //     try {
+    //         const res = await fetch('http://localhost:3030/api/register', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({
+    //                 email,
+    //                 username,
+    //                 password,
+    //                 rePassword,
+    //             })
+    //         });
             
-        } catch (error) {
-           console.log(error); 
-        }
-    }
+    //         const data = res.json()
+    //         console.log(data.user._id);
+            
+    //         // if (data.users._id) {
+    //         //     navigate('/')
+    //         // }
+            
+    //     } catch (error) {
+    //        console.log(error); 
+    //     }
+    // }
     return (
         <main>
             <section id="register-page">
@@ -48,14 +55,14 @@ function Register() {
                     <div className="card-image">
                         <h2 className="card-heading">Create your account</h2>
                     </div>
-                    <form className="card-form" onSubmit={registerUser}>
+                    <form className="card-form" onSubmit={onSubmit}>
                         <div className="input">
                             <input
                                 type="text"
                                 className="input-field"
                                 placeholder="Example@ex.com"
-                                // onChange={(e) => setEmail(e.target.value)}
-                                // value={email}
+                                onChange={onChange}
+                                value={values.email}
                                 id="name"
                                 name="email"
                                 defaultValue=""
@@ -67,8 +74,8 @@ function Register() {
                                 type="text"
                                 className="input-field"
                                 placeholder="alexander"
-                                // onChange={(e) => setUserName(e.target.value)}
-                                // value={username}
+                                onChange={onChange}
+                                value={values.username}
                                 id="username"
                                 name="username"
                                 defaultValue=""
@@ -79,8 +86,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
-                                // onChange={(e) => setPassword(e.target.value)}
-                                // value={password}
+                                onChange={onChange}
+                                value={values.password}
                                 id="password"
                                 name="password"
                                 placeholder="******"
@@ -91,8 +98,8 @@ function Register() {
                             <input
                                 type="password"
                                 className="input-field"
-                                // onChange={(e) => setRePassword(e.target.value)}
-                                // value={rePassword}
+                                onChange={onChange}
+                                value={values.rePassword}
                                 id="re-password"
                                 name="rePassword"
                                 placeholder="******"
@@ -105,7 +112,7 @@ function Register() {
                     </form>
                     <div className="card-info">
                         <small>
-                            Already have an account?<a href="/login"> Sign in</a>
+                            Already have an account?<Link to="/login"> Sign in</Link>
                         </small>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ function Login() {
             const data = res.json()
             console.log(data)
             
-             return <Navigate to='/' />
+     
             
 
             
